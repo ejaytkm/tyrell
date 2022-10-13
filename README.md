@@ -19,3 +19,7 @@
 ## Explanations
 1. I used laravel (php framework) + React to showcase my programming abilities.
 2.
+
+## TODO
+1. Write composer install command on docker package
+2. Do questions 1.
