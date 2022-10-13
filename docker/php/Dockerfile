@@ -9,12 +9,12 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
-    librabbitmq-dev \
+    # librabbitmq-dev \
     libssh-dev \
     libzip-dev \
     locales \
     zip \
-    jpegoptim optipng pngquant gifsicle \
+    # jpegoptim optipng pngquant gifsicle \
     vim \
     unzip \
     git \
@@ -22,14 +22,14 @@ RUN apt-get update && apt-get install -y \
     libpcre3-dev \
     wget \
     dpkg \
-    nodejs \
-    npm \
+    # nodejs \
+    # npm \
     sudo \
     net-tools \
-    nano \
-    libmagickwand-dev --no-install-recommends \
-    && pecl install imagick \
-	  && docker-php-ext-enable imagick
+    nano
+    # libmagickwand-dev --no-install-recommends \
+    # && pecl install imagick \
+	  # && docker-php-ext-enable imagick
 
 
 RUN apt-get install -y libpq-dev \
@@ -49,9 +49,9 @@ RUN docker-php-ext-install opcache
 RUN docker-php-ext-install \
   bcmath \
   sockets
-RUN pecl install amqp
-RUN docker-php-ext-enable amqp
-RUN npm install npm@latest -g
+# RUN pecl install amqp
+# RUN docker-php-ext-enable amqp
+# RUN npm install npm@latest -g
 
 
 # Install composer

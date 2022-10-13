@@ -6,6 +6,8 @@
 Navigate to root folder, run command `docker-compose up -d`
 This will install all necessary dependencies for application to compile and work
 
+Rename `.env.example` to `.env` in `projects/cardgame`
+
 An error will occur. Don't panic, just click the `Generate app key` button to get started. Error as followed:
 - `Illuminate\Encryption\MissingAppKeyException`
 - `No application encryption key has been specified.`
