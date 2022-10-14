@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y \
     libpcre3-dev \
     wget \
     dpkg \
-    # nodejs \
-    # npm \
+    nodejs \
+    npm \
     sudo \
     net-tools \
     nano

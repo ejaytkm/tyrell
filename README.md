@@ -1,12 +1,12 @@
 # Tyrell
 ## Requirements
 - Minimum Docker Version 4.5.1
-- 8MB RAM (4MB for docker) 
+- 8MB RAM (4MB for docker)
 
 ## Instructions
 Navigate to root folder, run command `docker-compose up -d`. This will install all necessary dependencies for application to compile and work
 
-Rename `.env.example` to `.env` in `projects/cardgame` - A server error code 500 will appear if failed to do so. 
+Rename `.env.example` to `.env` in `projects/cardgame` - A server error code 500 will appear if failed to do so.
 
 An error will occur. Cliking the `Generate app key` button to get started. This will autofill `APP_KEY=` in the `.env` file in the root of the laravel project.
 Example error as followed:
@@ -38,9 +38,20 @@ S-A,H-X,.....
 D-3,H-J,.....
 
 
-## Question 2 - Manual SQL Query Optimization 
+## Question 2 - Manual SQL Query Optimization
 
 
 ## TODO
 1. Write composer install command on docker package
-2. Do questions One on API method
+2. ~~Return cards in a form of a string~~
+3. Build frontend for card game using react
+4. WIP: Answer Questions 2.
+5. Write php script to call php class
+
+Questions 1)
+roughly 4hours
+
+Question 2)
+roughly 4hours
+
+

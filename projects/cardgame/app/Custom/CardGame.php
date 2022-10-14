@@ -1,9 +1,12 @@
 <?php
- 
+
 namespace App\Custom;
- 
+
+use Error;
+use Exception;
+
 // PURE PHP
-class CardGame 
+class CardGame
 {
     private $no_players;
     public $deck = array(
@@ -15,23 +18,37 @@ class CardGame
 
     /**
      * Initializes number of players. No way to shuffle without running this function (for now)
-     *  
+     *
      * @return bool
      */
-    public function start($no_players) 
+    public function start($no_players)
     {
+        if ($no_players <= 0) {
+            // throw new Error("Not enough players. Please input at lease 1 player.", 500);
+            throw new Error("“Input value does not exist or value is invalid", 500);
+
+        }
+
+        if (!is_int($no_players) || !is_numeric($no_players) ) {
+            // throw new Error("Please enter a valid number (no decimals).", 500);
+            throw new Error("“Input value does not exist or value is invalid", 500);
+        }
+
         $this->no_players = $no_players;
-        return true;
     }
 
     public function shuffle()
     {
-        shuffle($this->deck);
+        $this->check_players();
+
+        shuffle($this->deck); // built in function
         return $this->deck;
     }
 
-    public function shuffle_manual() 
+    public function shuffle_manual() // code snippet
     {
+        $this->check_players();
+
         $deck = $this->deck; // create copy
         for($x = 0; $x<count($deck); $x++){
             $temp = $deck[$x];
@@ -40,16 +57,46 @@ class CardGame
             $deck[$rand] = $temp;
         }
         $this->deck = $deck; // cast original
-        
+
         return $this->deck;
     }
 
     /**
-     * Returns deck in format of string
-     *  
-     * @return string 
+     * Returns deck in format of string, add empty values to those who din't get any cards
+     * due to lack of cards
+     * @return string
      */
-    public function distribute_cards() {
+    public function distribute_cards()
+    {
+        $this->check_players();
+
         $maxCards = 52;
+        $shortage_cards = $maxCards - $this->no_players;
+
+        $d_cards = "";
+        for ($i=0; $i < $this->no_players ; $i++) {
+            if ($i != 0) { // append comma to n(n) other than n(1)
+                $d_cards .= ",";
+            }
+
+            $d_cards .= $this->deck[$i];
+        }
+
+        // If shortage - handle remaining players
+        if ($shortage_cards < 0) {
+            for ($i=0; $i < abs($shortage_cards) ; $i++) {
+                $d_cards .= ",";
+            }
+        }
+
+        return $d_cards;
+    }
+
+    private function check_players()
+    {
+        if ($this->no_players <= 0) {
+            // throw new Error("Not enough players. Please input at lease 1 player.", 500);
+            throw new Error("“Irregularity occurred”", 500);
+        }
     }
 }
