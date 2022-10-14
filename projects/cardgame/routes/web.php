@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cardgame'); // define prefix with file name, refer to laravel documentation for this. etc: aaaa.blade.php
 });
