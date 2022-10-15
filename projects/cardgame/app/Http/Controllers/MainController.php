@@ -27,7 +27,7 @@ class MainController extends Controller
             return response()->json([
                 "totalPlayers" => $players,
                 "cards" => $new_game->distribute_cards(),
-                "deck" => $new_game->deck,
+                // "deck" => $new_game->deck,
             ]);
         } catch (\Throwable $th) {
             return response()->json([

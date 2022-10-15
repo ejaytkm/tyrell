@@ -1,18 +1,22 @@
 version: '3'
 services:
-  postgres:
-    image: postgres
-    restart: unless-stopped
+  db:
+    image: mysql
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --init-file /data/application/init.sql
     environment:
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=secrect
-      - POSTGRES_DB=root
-    ports:
-      - 5432:5432
+      MYSQL_ROOT_PASSWORD: example
     volumes:
-      - "pg-data:/var/lib/postgresql/data"
-      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - ./init.sql:/data/application/init.sql
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
   cardgame:
     container_name: 'cardgame'
@@ -28,10 +32,3 @@ services:
     command: "php artisan serve --host=0.0.0.0 --port=8000"
     # command: sh -c "tail -f /dev/null" // #TIP: use this to debug docker container without failing
 
-volumes:
-  pg-data:
-    driver: local
-  timescaledb-data:
-    driver: local
-  mongodb_data_container:
-    driver: local
