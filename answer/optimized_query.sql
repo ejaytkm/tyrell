@@ -112,27 +112,24 @@ INNER JOIN job_types JobTypes
   ON (JobTypes.id = (Jobs.job_type_id)
     AND (JobTypes.deleted) IS NULL)
 WHERE ((JobCategories.name LIKE '%キャビンアテンダント%'
-    OR JobTypes.name LIKE '%キャビンアテンダント%'
-    OR Jobs.name LIKE '%キャビンアテンダント%'
+    OR JobTypes.name LIKE 'キャビンアテンダント%'
+    OR Jobs.name LIKE 'キャビンアテンダント%'
     OR Jobs.description LIKE '%キャビンアテンダント%'
     OR Jobs.detail LIKE '%キャビンアテンダント%'
     OR Jobs.business_skill LIKE '%キャビンアテンダント%'
-    OR Jobs.knowledge LIKE '%キャビンアテンダント%'
+    OR Jobs.knowledge LIKE 'キャビンアテンダント%'
     OR Jobs.location LIKE '%キャビンアテンダント%'
-    OR Jobs.activity LIKE '%キャビンアテンダント%'
+    OR Jobs.activity LIKE 'キャビンアテンダント%'
     OR Jobs.salary_statistic_group LIKE '%キャビンアテンダント%'
     OR Jobs.salary_range_remarks LIKE '%キャビンアテンダント%'
     OR Jobs.restriction LIKE '%キャビンアテンダント%'
     OR Jobs.remarks LIKE '%キャビンアテンダント%'
-    OR Personalities.name LIKE '%キャビンアテンダント%'
-    OR PracticalSkills.name LIKE '%キャビンアテンダント%'
-    OR BasicAbilities.name LIKE '%キャビンアテンダント%'
-    OR Affiliate.name LIKE '%キャビンアテンダント%'
-    OR Affiliate.name LIKE '%キャビンアテンダント%'
-    OR Affiliate.name LIKE '%キャビンアテンダント%'
-    OR Affiliate.name LIKE '%キャビンアテンダント%')
+    OR Personalities.name LIKE 'キャビンアテンダント%'
+    OR PracticalSkills.name LIKE 'キャビンアテンダント%'
+    OR BasicAbilities.name LIKE 'キャビンアテンダント%'
+    OR Affiliate.name LIKE 'キャビンアテンダント%'
     AND publish_status = 1
     AND (Jobs.deleted) IS NULL)
 GROUP BY Jobs.id
 ORDER BY Jobs.sort_order desc,
-Jobs.id DESC LIMIT 50 OFFSET 0
+Jobs.id DESC LIMIT 50

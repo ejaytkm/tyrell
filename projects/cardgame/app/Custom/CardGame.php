@@ -74,7 +74,7 @@ class CardGame
         $shortage_cards = $maxCards - $this->no_players;
 
         $d_cards = "";
-        for ($i=0; $i < $this->no_players ; $i++) {
+        for ($i=0; $i < $maxCards; $i++) {
             if ($i != 0) { // append comma to n(n) other than n(1)
                 $d_cards .= ",";
             }
