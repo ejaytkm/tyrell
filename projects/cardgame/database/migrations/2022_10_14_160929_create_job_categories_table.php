@@ -24,8 +24,6 @@ class CreateJobCategoriesTable extends Migration
             $table->dateTime('modified');
             $table->dateTime('deleted');
         });
-
-        // $table->foreign('user_id')->references('id')->on('users');
     }
 
     /**

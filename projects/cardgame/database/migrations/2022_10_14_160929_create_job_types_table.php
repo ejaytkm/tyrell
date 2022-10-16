@@ -18,12 +18,14 @@ class CreateJobTypesTable extends Migration
 
             $table->string("name");
             $table->string("sort_order");
-            $table->string("job_category_id");
+            $table->unsignedBigInteger("job_category_id");
             $table->string("created_by");
 
             $table->dateTime('created');
             $table->dateTime('modified');
             $table->dateTime('deleted');
+
+            $table->foreign('job_category_id')->references('id')->on('job_categories');
         });
     }
 

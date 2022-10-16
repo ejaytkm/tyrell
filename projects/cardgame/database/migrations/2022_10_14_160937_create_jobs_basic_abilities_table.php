@@ -16,12 +16,15 @@ class CreateJobsBasicAbilitiesTable extends Migration
         Schema::create('jobs_basic_abilities', function (Blueprint $table) {
             $table->id();
 
-            $table->string("job_id");
-            $table->string("basic_ability_id");
+            $table->unsignedBigInteger("job_id");
+            $table->unsignedBigInteger("basic_ability_id");
 
             $table->dateTime('created');
             $table->dateTime('modified');
             $table->dateTime('deleted');
+
+            $table->foreign('job_id')->references('id')->on('jobs');
+            $table->foreign('basic_ability_id')->references('id')->on('basic_abilities');
         });
     }
 

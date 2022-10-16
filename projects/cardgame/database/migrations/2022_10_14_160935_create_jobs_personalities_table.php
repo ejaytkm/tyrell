@@ -16,12 +16,15 @@ class CreateJobsPersonalitiesTable extends Migration
         Schema::create('jobs_personalities', function (Blueprint $table) {
             $table->id();
 
-            $table->string("job_id");
-            $table->string("personality_id");
+            $table->unsignedBigInteger("job_id");
+            $table->unsignedBigInteger("personality_id");
 
             $table->dateTime('created');
             $table->dateTime('modified');
             $table->dateTime('deleted');
+
+            $table->foreign('job_id')->references('id')->on('jobs');
+            $table->foreign('personality_id')->references('id')->on('personalities');
         });
     }
 

@@ -16,12 +16,15 @@ class CreateJobsRecQualificationsTable extends Migration
         Schema::create('jobs_rec_qualifications', function (Blueprint $table) {
             $table->id();
 
-            $table->string("job_id");
-            $table->string("affiliate_id");
+            $table->unsignedBigInteger("job_id");
+            $table->unsignedBigInteger("affiliate_id");
 
             $table->dateTime('created');
             $table->dateTime('modified');
             $table->dateTime('deleted');
+
+            $table->foreign('job_id')->references('id')->on('jobs');
+            $table->foreign('affiliate_id')->references('id')->on('affiliates');
         });
     }
 

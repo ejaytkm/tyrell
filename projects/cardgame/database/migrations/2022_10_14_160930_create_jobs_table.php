@@ -18,8 +18,8 @@ class CreateJobsTable extends Migration
 
             $table->string("name");
             $table->string("media_id");
-            $table->string("job_category_id");
-            $table->string("job_type_id");
+            $table->unsignedBigInteger("job_category_id");
+            $table->unsignedBigInteger("job_type_id");
             $table->string("description");
             $table->string("detail");
             $table->string("business_skill");
@@ -48,6 +48,9 @@ class CreateJobsTable extends Migration
             $table->dateTime('created');
             $table->dateTime('modified');
             $table->dateTime('deleted');
+
+            $table->foreign('job_category_id')->references('id')->on('job_categories');
+            $table->foreign('job_type_id')->references('id')->on('job_types');
         });
     }
 
