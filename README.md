@@ -16,20 +16,17 @@ docker-compose up -d
 
 The code above will initialize the docker. Please wait completely for application to start.
 
+Go ahead and test connectivity using or simply navigate to `localhost:8000`
+
+```shell
+curl http://localhost:8000/'
+```
+
 ### Initial Configuration
 
 -
 
 ## Developing
-
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
-
-```shell
-git clone https://github.com/ejaytkm/tyrell.git
-cd projects/cardgame
-```
-
 API Codes are available in this laravel file
 
 ### Building
