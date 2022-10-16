@@ -1,6 +1,5 @@
-![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
 
-# ST Assetment
+# TT Assetment
 
 > Additional information or tagline
 
